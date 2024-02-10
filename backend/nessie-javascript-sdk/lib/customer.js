@@ -122,10 +122,7 @@ export let Customer = {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(json),
-            })            .then(res =>
-                res.json()).then(d => {
-                    console.log(d)
-                });
+            });
 
 
             return response;

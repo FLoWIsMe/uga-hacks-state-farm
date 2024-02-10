@@ -18,9 +18,14 @@ app.use(bodyParser.json());
 app.post('/api/createCustomer', (req, res) => {
     const requestData = req.body;
 
-  Customer.createCustomer(requestData);
+  Customer.createCustomer(requestData).then(res1 =>
+    res1).then(d => {
+        if (d.status==201) {
+          res.status(200).send("created")
+        }
+    });
     
-  res.status(200).json({ success: true});
+
 
 });
 
