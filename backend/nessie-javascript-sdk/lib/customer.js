@@ -1,75 +1,69 @@
+import { Config } from './capital_one.js';
 
-import {Config} from './capital_one';
-    
-export default Customer = {
-    initWithKey: function(apiKey) {
+export let Customer = {
+    initWithKey: function (apiKey) {
         Config.setApiKey(apiKey);
         return this;
     },
-    urlWithEntity: function() {
-        return Config.baseUrl + "/customers/";
+    urlWithEntity: function () {
+        return Config.baseUrl + "/customers";
     },
-    urlWithAcctEntity: function() {
-        return Config.baseUrl + "/accounts/";
+    urlWithAcctEntity: function () {
+        return Config.baseUrl + "/accounts";
     },
-    apiKey: function() {
+    apiKey: function () {
         return Config.apiKey;
     },
     /**
      * @Method: getCustomers
      * @Brief: Gets all customers the API key has access to.
-     * @Returns an array of JSON Objects.
+     * @Returns a Promise resolving to an array of JSON Objects.
      **/
-    getCustomers: function() {
-        var customers;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', this.urlWithEntity() + '?key=' + this.apiKey(), false);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send();
-
-        if (xhr.status === 200) {
-            customers = JSON.parse(xhr.responseText);
+    getCustomers: async function () {
+        try {
+            const response = await fetch(this.urlWithEntity() + '?key=' + this.apiKey());
+            const customers = await response.json();
+            return customers;
+        } catch (error) {
+            console.error('Error fetching customers:', error);
+            throw error;
         }
-        return customers;
     },
     /**
      * @Method: getCustomerById
      * @Brief: Gets the specified customer's information.
      * @Parameters: CustomerId
-     * @Returns an object with the customer data
+     * @Returns a Promise resolving to an object with the customer data.
      **/
-    getCustomerById: function(custId) {
-        var customer;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', this.urlWithEntity() + custId + '?key=' + this.apiKey(), false);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send();
-
-        if (xhr.status === 200) {
-            customer = JSON.parse(xhr.responseText);
+    getCustomerById: async function (custId) {
+        try {
+            const response = await fetch(this.urlWithEntity() + custId + '?key=' + this.apiKey());
+            const customer = await response.json();
+            return customer;
+        } catch (error) {
+            console.error('Error fetching customer by ID:', error);
+            throw error;
         }
-        return customer;
     },
     /**
-     * @Method: Get the customer for the given account.
+     * @Method: getCustomerByAcountId
+     * @Brief: Get the customer for the given account.
      * @Parameters: AccountId
-     * @Returns an object with the specified customer data.
+     * @Returns a Promise resolving to an object with the specified customer data.
      **/
-    getCustomerByAcountId: function(accId) {
-        var customer;
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', this.urlWithAcctEntity() + accId + '/customer?key=' + this.apiKey(), false);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send();
-
-        if (xhr.status === 200) {
-            customer = JSON.parse(xhr.responseText);
+    getCustomerByAcountId: async function (accId) {
+        try {
+            const response = await fetch(this.urlWithAcctEntity() + accId + '/customer?key=' + this.apiKey());
+            const customer = await response.json();
+            return customer;
+        } catch (error) {
+            console.error('Error fetching customer by account ID:', error);
+            throw error;
         }
-        return customer;
     },
     /**
      * @Method: updateCustomer
-     * @Brief: Updates a customer by id with given JSON data.
+     * @Brief: Updates a customer by ID with given JSON data.
      * @Parameters: CustomerId, Customerobject.
      * @Note: JSON is as follows:
      *  {
@@ -81,17 +75,23 @@ export default Customer = {
      *     "zip": ""
      *   }
      * }
-     * @Returns http response code.
+     * @Returns a Promise resolving to the http response code.
      **/
-    updateCustomer: function(custId, json) {
-        var respCode;
-        var xhr = new XMLHttpRequest();
-        xhr.open('PUT', this.urlWithEntity() + custId + '?key=' + this.apiKey(), false);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(json));
-
-        respCode = xhr.status;
-        return respCode;
+    updateCustomer: async function (custId, json) {
+        try {
+            const response = await fetch(this.urlWithEntity() + custId + '?key=' + this.apiKey(), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(json),
+            });
+            const respCode = response.status;
+            return respCode;
+        } catch (error) {
+            console.error('Error updating customer:', error);
+            throw error;
+        }
     },
     /**
      * @Method: createCustomer
@@ -111,16 +111,27 @@ export default Customer = {
      *   }
      *  }
      * }
-     * @Returns http response code.
+     * @Returns a Promise resolving to the http response code.
      **/
-    createCustomer: function(json) {
-        var respCode;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', this.urlWithEntity() + '?key=' + this.apiKey(), false);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.send(JSON.stringify(json));
+    createCustomer: async function (json) {
+        try {
+            console.log(this.urlWithEntity() + '?key=' + this.apiKey())
+            const response = await fetch(this.urlWithEntity() + '?key=' + this.apiKey(), {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(json),
+            })            .then(res =>
+                res.json()).then(d => {
+                    console.log(d)
+                });
 
-        respCode = xhr.status;
-        return respCode;
-    }
+
+            return response;
+        } catch (error) {
+            console.error('Error creating customer:', error);
+            throw error;
+        }
+    },
 };

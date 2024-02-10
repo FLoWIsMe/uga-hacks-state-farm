@@ -1,5 +1,4 @@
-
- 	var Config = require('capital_one');
+import {Config} from './capital_one.js';
 
 	 export default Account = {
 		initWithKey: function(apiKey) {
@@ -7,10 +6,10 @@
 			return this;
 		},
 		urlWithEntity: function() {
-			return Config.baseUrl + '/accounts/';
+			return Config.baseUrl + '/accounts';
 		},
 		urlWithCustomerEntity: function() {
-			return Config.baseUrl + '/customers/';
+			return Config.baseUrl + '/customers';
 		},
 		apiKey: function() {
 			return Config.apiKey;

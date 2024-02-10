@@ -1,9 +1,6 @@
-
-export default Config = {
-		baseUrl: 'http://api.reimaginebanking.com:80',
-		apiKey: function() {
-			return this.apiKey;
-		},
+export let Config = {
+		baseUrl: 'http://api.nessieisreal.com',
+		apiKey: "e3b5d57f300e223d100b0d7198b0f5fa",
 		setApiKey: function(apiKey) {
 			this.apiKey = apiKey;
 		}

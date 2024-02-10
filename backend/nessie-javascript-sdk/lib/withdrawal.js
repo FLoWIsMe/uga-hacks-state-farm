@@ -1,6 +1,7 @@
+import XMLHttpRequest from 'xhr2';
 import {Config} from './capital_one';
 
-export default Withdrawal = {
+export let Withdrawal = {
     // Initialize the API key
     initWithKey: function(apiKey) {
         Config.setApiKey(apiKey);

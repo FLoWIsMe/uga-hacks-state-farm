@@ -1,5 +1,5 @@
-
- 	var Config = require('capital_one');
+import XMLHttpRequest from 'xhr2';
+import {Config} from './capital_one.js';
 
 export default Atm = {
 		initWithKey: function(apiKey) {

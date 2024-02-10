@@ -1,7 +1,7 @@
+import XMLHttpRequest from 'xhr2';
+import {Config} from './capital_one.js';
 
- 	var Config = requirejs('capital_one');
-
-export default Merchant = {
+export let Merchant = {
 		initWithKey: function(apiKey) {
 			Config.setApiKey(apiKey);
 			return this;

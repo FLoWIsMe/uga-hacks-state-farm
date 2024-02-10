@@ -1,7 +1,7 @@
+import XMLHttpRequest from 'xhr2';
+import {Config} from './capital_one.js';
 
- 	var Config = require('capital_one');
-
-export default Transfer = {
+export let Transfer = {
 		initWithKey: function(apiKey) {
 			Config.setApiKey(apiKey);
 			return this;
