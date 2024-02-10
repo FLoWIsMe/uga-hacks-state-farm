@@ -5,6 +5,8 @@ import path from 'path'
 import bodyParser from 'body-parser'
 
 import {Customer} from "./nessie-javascript-sdk/lib/customer.js"
+import {Account} from "./nessie-javascript-sdk/lib/account.js"
+
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -21,15 +23,35 @@ app.post('/api/createCustomer', (req, res) => {
   Customer.createCustomer(requestData).then(res1 =>
     res1).then(d => {
         if (d.status==201) {
-          res.status(200).send("created")
+          res.status(200).send(res1.json())
         }
     });
-    
-
 
 });
 
+app.get("/api/getCustomerById/:id", (req, res) => {
+  const id = req.params.id; //65c7aa5b9683f20dd5188e76
+  
+  Customer.getCustomerById(id).then(res1 =>
+    res1).then(d => {
+        if (d.status==201) {
+          res.status(200).send(res1.json())
+        }
+    });
+})
 
+
+app.get("api/getAccountsByCustomerId/:id", (req, res) => {
+  const id = req.params.id;
+
+  Account.getAllByCustomerId(id).then(res1 =>
+    res1).then(d => {
+        if (d.status==201) {
+          res.status(200).send(res1.json())
+        }
+    });
+    
+})
 
 //app.get("/", (req, res) => {
 //  res.sendFile(path.join(__dirname, "public", "index.html"));
