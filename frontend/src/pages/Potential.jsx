@@ -2,7 +2,11 @@
   import { Stack, Text, Box } from '@chakra-ui/react'
 
 
-  export const Potential = () => (
+  export const Potential = () => {
+  
+  
+  
+  return (
    <Stack
      width="1357px"
      height="900px"
@@ -81,4 +85,4 @@
      <Stack width="950px" height="514px" maxWidth="100%" background="#FFFFFF" />
    </Stack>
   )
-  
+  }

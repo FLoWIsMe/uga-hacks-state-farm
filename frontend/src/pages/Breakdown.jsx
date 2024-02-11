@@ -1,7 +1,8 @@
 import { Stack, Text, Box, Icon } from '@chakra-ui/react'
 
 
-export const Breakdown = () => (
+export const Breakdown = () => {
+  return(
    <Stack
      width="1357px"
      height="900px"
@@ -86,4 +87,4 @@ export const Breakdown = () => (
      <span className="unsupported" />
      <span className="unsupported" />
    </Stack>
- )
+ )}

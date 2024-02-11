@@ -1,7 +1,9 @@
 import { Stack, Text, Box } from '@chakra-ui/react'
 
 
-export const Q2 = () => (
+export const Q2 = () => {
+
+return(
  <Stack
    width="1357px"
    height="900px"
@@ -108,3 +110,4 @@ export const Q2 = () => (
    </Stack>
  </Stack>
 )
+}
