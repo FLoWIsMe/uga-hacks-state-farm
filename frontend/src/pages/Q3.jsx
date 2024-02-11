@@ -1,111 +1,89 @@
-// Q3
-import { Stack, Text, Box, Icon } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import { Stack, Text, Box, Button, Select } from '@chakra-ui/react';
 
+export default function Q3() {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
 
-export const Q3 = () => (
- <Stack
-   width="1357px"
-   height="900px"
-   maxWidth="100%"
-   background="#5F5F5F"
-   boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
- >
-   <Text
-     fontFamily="Inter"
-     fontWeight="semibold"
-     fontSize="32px"
-     color="#F5FCFD"
-     width="1032px"
-     height="50px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     What Is Your Risk Tolerance?
-   </Text>
-   <Stack width="508px" height="121px" maxWidth="100%">
-     <Box
-       borderRadius="80px"
-       width="508px"
-       height="121px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#262626"
-       width="378.98px"
-       height="51.54px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Select an option
-     </Text>
-   </Stack>
-   <Icon>
-     <Box width="415px" height="71px" maxWidth="100%" background="#262626" />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#FFFFFF"
-       width="249px"
-       height="56px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Next
-     </Text>
-     <Stack width="26px" height="23px" />
-   </Icon>
-   <Stack width="300px" height="900px" maxWidth="100%" background="#262626">
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Allocation
-       </Text>
-       <Stack width="32px" height="29px" />
-     </Stack>
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Accounts
-       </Text>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Profile
-       </Text>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="32px" height="32px" />
-     <Stack width="254px" height="96px" maxWidth="100%">
-       <Box width="254px" height="96px" maxWidth="100%" />
-     </Stack>
-   </Stack>
- </Stack>
-)
+  const handleBoxClick = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const handleNextButtonClick = () => {
+    // Perform any necessary actions before navigating to the next question
+    console.log("Selected option:", selectedOption);
+    // Example: Navigation to the next question (replace with actual navigation logic)
+    // history.push('/next-question');
+  };
+
+  return (
+    <Stack
+      width="100vw"
+      height="100vh"
+      maxWidth="100%"
+      background="#5F5F5F"
+      boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
+      padding="2rem"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Text
+        fontFamily="Inter"
+        fontWeight="semibold"
+        fontSize="32px"
+        color="#F5FCFD"
+        width="100%"
+        textAlign="center"
+      >
+        What is your risk tolerance?
+      </Text>
+      <Box
+        onClick={handleBoxClick}
+        width="300px"
+        height="100px"
+        background="#FCBCDC"
+        borderRadius="8px"
+        marginTop="2rem"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        cursor="pointer"
+      >
+        <Text
+          fontFamily="Inter"
+          fontWeight="semibold"
+          fontSize="20px"
+          color="#262626"
+        >
+          {selectedOption || "Select an option"}
+        </Text>
+      </Box>
+      {showDropdown && (
+        <Select
+          value={selectedOption}
+          onChange={handleOptionChange}
+          width="300px"
+          marginTop="1rem"
+        >
+          <option value="">Select an option</option>
+          <option value="Conservative">Conservative</option>
+          <option value="Moderately Conservative">Moderately Conservative</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Moderately Aggressive">Moderately Aggressive</option>
+          <option value="Aggressive">Aggressive</option>
+        </Select>
+      )}
+      <Button
+        onClick={handleNextButtonClick}
+        marginTop="2rem"
+        colorScheme="teal"
+      >
+        Next
+      </Button>
+    </Stack>
+  );
+}

@@ -1,145 +1,130 @@
 // Sign Up
-import { Stack, Text, Icon, Box } from '@chakra-ui/react'
+import { Text, Box, Input, VStack, Heading, FormControl, FormLabel, ChakraProvider, Button} from '@chakra-ui/react'
+import React, { useState } from 'react';
 
+export default function SignUp() {
 
-export const SignUp = () => (
- <Stack
-   width="1357px"
-   height="900px"
-   maxWidth="100%"
-   background="#5F5F5F"
-   boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
- >
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="293px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     Last Name
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="293px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     Email
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="372px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     Password
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="372px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     Address
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="372px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     City
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="372px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     State
-   </Text>
-   <span className="unsupported" />
-   <Text
-     fontFamily="Inter"
-     fontWeight="regular"
-     fontSize="32px"
-     color="#FFFFFF"
-     width="293px"
-     height="38px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     First Name
-   </Text>
-   <Icon>
-     <Box width="415px" height="71px" maxWidth="100%" background="#262626" />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#FFFFFF"
-       width="249px"
-       height="56px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Next
-     </Text>
-     <Stack width="26px" height="23px" />
-   </Icon>
-   <Stack width="238px" height="87px">
-     <Box width="238px" height="87px" />
-   </Stack>
-   <Box>
-     <Box
-       borderRadius="80px"
-       width="391px"
-       height="83px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#000000"
-       width="352px"
-       height="40px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Sign Up
-     </Text>
-   </Box>
- </Stack>
-)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    address: '',
+    city: '',
+    state: '',
+  });
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = () => {
+    // You can now access form data in the 'formData' object
+    console.log(formData);
+
+    // Add your logic for submitting the form data to the server or any other actions
+  };
+
+  return (
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        height="125vh"
+        bg="#5F5F5F"
+      >
+        <VStack
+          spacing={4}
+          p={8}
+          borderWidth={1}
+          borderRadius="lg"
+          boxShadow="lg"
+          color="#262626"
+          w="full"
+          maxW="md"
+        >
+          <Heading color="#262626">Sign Up</Heading>
+          <Text color="#262626">Please enter your details</Text>
+
+          <FormControl id="firstName">
+            <FormLabel>First Name</FormLabel>
+            <Input
+              placeholder="First Name"
+              onChange={handleChange}
+              value={formData.firstName}
+            />
+          </FormControl>
+
+          <FormControl id="lastName">
+            <FormLabel>Last Name</FormLabel>
+            <Input
+              placeholder="Last Name"
+              onChange={handleChange}
+              value={formData.lastName}
+            />
+          </FormControl>
+
+          <FormControl id="email">
+            <FormLabel>Email</FormLabel>
+            <Input
+              placeholder="Email"
+              type="email"
+              onChange={handleChange}
+              value={formData.email}
+            />
+          </FormControl>
+
+          <FormControl id="password">
+            <FormLabel>Password</FormLabel>
+            <Input
+              placeholder="Password"
+              type="password"
+              onChange={handleChange}
+              value={formData.password}
+            />
+          </FormControl>
+
+          <FormControl id="address">
+            <FormLabel>Address</FormLabel>
+            <Input
+              placeholder="Address"
+              onChange={handleChange}
+              value={formData.address}
+            />
+          </FormControl>
+
+          <FormControl id="city">
+            <FormLabel>City</FormLabel>
+            <Input
+              placeholder="City"
+              onChange={handleChange}
+              value={formData.city}
+            />
+          </FormControl>
+
+          <FormControl id="state">
+            <FormLabel>State</FormLabel>
+            <Input
+              placeholder="State"
+              onChange={handleChange}
+              value={formData.state}
+            />
+          </FormControl>
+
+          <Button
+            bg="#FCBCDC"
+            color="#262626"
+            _hover={{ bg: "#f7a8c4" }}
+            w="full"
+            onClick={handleSubmit}
+          >
+            Sign Up
+          </Button>
+        </VStack>
+      </Box>
+  )};

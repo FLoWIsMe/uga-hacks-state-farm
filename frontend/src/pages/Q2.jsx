@@ -1,110 +1,92 @@
-import { Stack, Text, Box } from '@chakra-ui/react'
+import React, { useState } from 'react';
+import { Stack, Text, Box, Button, Select } from '@chakra-ui/react';
 
+export default function Q2() {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [selectedOption, setSelectedOption] = useState('');
 
-export const Q2 = () => (
- <Stack
-   width="1357px"
-   height="900px"
-   maxWidth="100%"
-   background="#5F5F5F"
-   boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
- >
-   <Text
-     fontFamily="Inter"
-     fontWeight="semibold"
-     fontSize="32px"
-     color="#F5FCFD"
-     width="1032px"
-     height="50px"
-     maxWidth="100%"
-     textAlign="center"
-   >
-     What Is Your Most Important Short-Term Goal?
-   </Text>
-   <Stack width="508px" height="121px" maxWidth="100%">
-     <Box
-       borderRadius="80px"
-       width="508px"
-       height="121px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#262626"
-       width="378.98px"
-       height="51.54px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Select an option
-     </Text>
-   </Stack>
-   <Stack width="415px" height="72px" maxWidth="100%">
-     <Box width="415px" height="71px" maxWidth="100%" background="#262626" />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#FFFFFF"
-       width="249px"
-       height="56px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Next
-     </Text>
-     <Stack width="26px" height="23px" />
-   </Stack>
-   <Stack width="300px" height="900px" maxWidth="100%" background="#262626">
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Allocation
-       </Text>
-       <Stack width="32px" height="29px" />
-     </Stack>
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Accounts
-       </Text>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-       <Text
-         fontFamily="Inter"
-         fontWeight="semibold"
-         fontSize="32px"
-         color="#262626"
-         width="164px"
-         height="33px"
-         textAlign="center"
-       >
-         Profile
-       </Text>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="32px" height="32px" />
-     <Stack width="254px" height="96px" maxWidth="100%">
-       <Box width="254px" height="96px" maxWidth="100%" />
-     </Stack>
-   </Stack>
- </Stack>
-)
+  const handleBoxClick = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
+
+  const handleNextButtonClick = () => {
+    // Perform any necessary actions before navigating to Q3
+    console.log("Selected option:", selectedOption);
+    // Example: Navigation to Q3 (replace with actual navigation logic)
+    // history.push('/q3');
+  };
+
+  return (
+    <Stack
+      width="100vw"
+      height="100vh"
+      maxWidth="100%"
+      background="#5F5F5F"
+      boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
+      padding="2rem"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Text
+        fontFamily="Inter"
+        fontWeight="semibold"
+        fontSize="32px"
+        color="#F5FCFD"
+        width="100%"
+        textAlign="center"
+      >
+        What is your most important short-term goal?
+      </Text>
+      <Box
+        onClick={handleBoxClick}
+        width="300px"
+        height="100px"
+        background="#FCBCDC"
+        borderRadius="8px"
+        marginTop="2rem"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        cursor="pointer"
+      >
+        <Text
+          fontFamily="Inter"
+          fontWeight="semibold"
+          fontSize="20px"
+          color="#262626"
+        >
+          {selectedOption || "Select an option"}
+        </Text>
+      </Box>
+      {showDropdown && (
+        <Select
+          value={selectedOption}
+          onChange={handleOptionChange}
+          width="300px"
+          marginTop="1rem"
+        >
+          <option value="">Select an option</option>
+          <option value="Emergency Funds">Emergency Funds</option>
+          <option value="Vacation/Travel">Vacation or Travel</option>
+          <option value="Home Down Payment">Home Down Payment</option>
+          <option value="Educational/Professional Development">Educational or Professional Development</option>
+          <option value="Wedding or Family Events">Wedding or Family Events</option>
+          <option value="Major Purchase (car/appliance)">Major Purchase</option>
+          <option value="Paying off Credit Card/ Short Term Expense">Paying off Credit Card or Short Term</option>
+          <option value="Saving for Special Event">Saving for Special Event</option>
+        </Select>
+      )}
+      <Button
+        onClick={handleNextButtonClick}
+        marginTop="2rem"
+        colorScheme="teal"
+      >
+        Next
+      </Button>
+    </Stack>
+  );
+}

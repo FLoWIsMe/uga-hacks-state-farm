@@ -1,11 +1,13 @@
   // Potential
-  import { Stack, Text, Box } from '@chakra-ui/react'
+  import { Button, Stack, Text, Box } from '@chakra-ui/react'
 
 
-  export const Potential = () => (
+  export default function Potential() {
+
+    return(
    <Stack
-     width="1357px"
-     height="900px"
+     width="100vw"
+     height="100vh"
      maxWidth="100%"
      background="#5F5F5F"
      boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
@@ -81,4 +83,4 @@
      <Stack width="950px" height="514px" maxWidth="100%" background="#FFFFFF" />
    </Stack>
   )
-  
+    }

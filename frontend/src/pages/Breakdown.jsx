@@ -1,10 +1,12 @@
-import { Stack, Text, Box, Icon } from '@chakra-ui/react'
+import { Stack, Text, Box, Button } from '@chakra-ui/react'
 
 
-export const Breakdown = () => (
+export default function Breakdown() {
+
+  return(
    <Stack
-     width="1357px"
-     height="900px"
+     width="100vw"
+     height="100vh"
      maxWidth="100%"
      background="#5F5F5F"
      boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
@@ -57,7 +59,7 @@ export const Breakdown = () => (
      <Stack width="254px" height="96px" maxWidth="100%">
        <Box width="254px" height="96px" maxWidth="100%" />
      </Stack>
-     <Icon>
+     <Button>
        <Box
          borderRadius="80px"
          width="508px"
@@ -78,7 +80,7 @@ export const Breakdown = () => (
          See your potential
        </Text>
        <Stack width="30px" height="27px" />
-     </Icon>
+     </Button>
      <span className="unsupported" />
      <span className="unsupported" />
      <span className="unsupported" />
@@ -87,3 +89,4 @@ export const Breakdown = () => (
      <span className="unsupported" />
    </Stack>
  )
+}
