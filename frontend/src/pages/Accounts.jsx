@@ -20,7 +20,7 @@ function Accounts() {
 
         {/* Main Content Area */}
         <Box flex="1" p={4} bg="#5F5F5F">
-          <Heading>Accounts</Heading>
+          <Heading color={"#FFFFFF"}>Accounts</Heading>
           {/* Pull from API */}
           <IconButton
             aria-label="Add new"

@@ -1,7 +1,9 @@
 import React from 'react';
 import { ChakraProvider, Box, VStack, Button, Image } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Homepage() {
+  let navigate = useNavigate();
   return (
     <ChakraProvider>
       <Box
@@ -29,6 +31,7 @@ export default function Homepage() {
             w="full" // Makes the button full width within the VStack
             maxW="md" // Limits the maximum width of the button for better aesthetics
             mb={2} // Margin bottom for spacing between buttons
+            onClick={() => navigate('/login')}
           >
             Login
           </Button>
@@ -39,6 +42,7 @@ export default function Homepage() {
             _hover={{ bg: "#FFBCDC" }}
             w="full" // Makes the button full width within the VStack
             maxW="md" // Limits the maximum width of the button
+            onClick={() => navigate('/signup')}
           >
             Sign Up
           </Button>

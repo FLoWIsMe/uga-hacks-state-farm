@@ -1,9 +1,10 @@
 // Sign Up
 import { Text, Box, Input, VStack, Heading, FormControl, FormLabel, ChakraProvider, Button} from '@chakra-ui/react'
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
-
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -25,6 +26,7 @@ export default function SignUp() {
   const handleSubmit = () => {
     // You can now access form data in the 'formData' object
     console.log(formData);
+    navigate('/Accounts')
 
     // Add your logic for submitting the form data to the server or any other actions
   };
@@ -44,12 +46,12 @@ export default function SignUp() {
           borderWidth={1}
           borderRadius="lg"
           boxShadow="lg"
-          color="#262626"
+          color="#FFFFFF"
           w="full"
           maxW="md"
         >
-          <Heading color="#262626">Sign Up</Heading>
-          <Text color="#262626">Please enter your details</Text>
+          <Heading color="#FFBCDC">Sign Up</Heading>
+          <Text color="#FFFFFF">Please enter your details</Text>
 
           <FormControl id="firstName">
             <FormLabel>First Name</FormLabel>
