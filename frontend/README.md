@@ -3,6 +3,30 @@
 # Justin C
 # Daniel Mathew
 
+
+
+## Inspiration
+We were inspired by Capital One's challenge to build this web app because we realized as soon as the topic of reimagining banking was unveiled that we each had a calling to this project. We were brainstorming ideas and as soon as someone said, "Why don't we make something that allows the customer to control their money rather than the bank itself?" our eyes lit up! Given that the typical savings account has an average yield of less than 1%, we decided to provide customers with more options that are more beneficial for their financial future. 
+
+## What it does
+ReBank allows customers to have a clear picture of what their money can do for them by telling them where they can put their money to be most beneficial for them. We do this by having the customer answer three simple questions and then based on their answers, we calculate what will be the best places for them to put their money. Then, we show them what their earning potential can be if they choose to reimagine banking.
+
+## How we built it
+To reimagine banking we realized that we needed to start with how the system currently works and rebuild it from the ground up. Thus, we started with Capital One's API and Node.js to build a model of a bank and from there, extract data using React.js and a framework for reusable components called Chakra.
+
+## Challenges we ran into
+There were many challenges throughout the project but by far the hardest was working together on the codebase. With a few hours (and a lot of coffee) we were able to iron out the kinks and start all working on separate pieces of the final product. Also, we tried to use a Chakra extension for Figma to write our frontend code from our Figma frames however, once we had finally finished perfecting the frames and generated the code, we realized it was completely useless.
+
+## Accomplishments that we're proud of
+Two of us came into this hackathon never having met the other two and being able to collaborate and work together immediately is something we are all proud of. Also, our coding abilities were tested and tried, and with 3 of us not having any prior experience with React and Chakra, we all had to learn on the fly.
+
+## What we learned
+As I said, 3 of us learned React on the fly. We all learned how to work together with people who were were unfamiliar with, and we all learned that what you put into it is definitely what you get out of it.
+
+## What's next for ReBank
+We want to expand the app further and give it its own identity as the banking app of the future. To do this, we want to create our own backend (rather than use Capital One's API, and then give users the ability to implement our suggestions within the app itself. For instance, if we recommend they put 35% of their net worth into index funds, we would love to streamline this process and make that option available to them within ReBank.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
