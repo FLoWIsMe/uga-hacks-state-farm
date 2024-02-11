@@ -2,7 +2,6 @@ import React from 'react';
 import { ChakraProvider, Flex, VStack, Button, Box, Heading, Image, IconButton } from '@chakra-ui/react';
 import { FiPlus } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-// import AccountCreation from "./AccountCreation.jsx";
 
 function Accounts() {
   let navigate = useNavigate();
@@ -13,9 +12,9 @@ function Accounts() {
         <Box bg="#262626" width="250px" color="white" p={4}>
           <VStack spacing={4} align="stretch">
             <Image src="../logo.png" boxWidth="150px" boxHeight="55px" objectFit="cover" alt="Logo" mb={8}></Image> 
-            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Allocation</Button>
-            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Accounts</Button>
-            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Profile</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Breakdown')}>Allocation</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Accounts')}>Accounts</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/')} >Logout</Button>
           </VStack>
         </Box>
 

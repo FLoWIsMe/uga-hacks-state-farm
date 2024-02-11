@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 import React, { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 import { ChakraProvider, Box, VStack, Input, Button, Heading, Text } from '@chakra-ui/react';
 
 function LoginPage() {
@@ -8,6 +7,8 @@ function LoginPage() {
     username: '',
     password: '',
   });
+
+  let navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -20,8 +21,7 @@ function LoginPage() {
   const handleLogin = () => {
     // You can now access login credentials in the 'credentials' object
     console.log(credentials);
-
-    // Add your logic for handling login, such as authentication or redirection
+    navigate('/Accounts')
   };
 
   return (

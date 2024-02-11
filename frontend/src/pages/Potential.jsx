@@ -1,174 +1,79 @@
-<<<<<<< HEAD
-  // Potential
-  import { Button, Stack, Text, Box } from '@chakra-ui/react'
+import React from 'react';
+import { ChakraProvider, Flex, Box, Heading, Button, VStack } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { Line } from 'react-chartjs-2';
 
+function Potential() {
+  let navigate = useNavigate();
 
-  export default function Potential() {
+  // Example graph data and options (customize as needed)
+  const data = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    datasets: [
+      {
+        label: 'Performance',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: '#fff',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 1,
+        pointHitRadius: 10,
+        data: [65, 59, 80, 81, 56, 55, 40], // Example data
+      },
+    ],
+  };
 
-    return(
-   <Stack
-     width="100vw"
-     height="100vh"
-     maxWidth="100%"
-     background="#5F5F5F"
-     boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
-   >
-     <Stack width="300px" height="900px" maxWidth="100%" background="#262626">
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Allocation
-         </Text>
-         <Stack width="32px" height="29px" />
-       </Stack>
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Accounts
-         </Text>
-         <Stack width="32px" height="32px" />
-       </Stack>
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Profile
-         </Text>
-         <Stack width="32px" height="32px" />
-       </Stack>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="254px" height="96px" maxWidth="100%">
-       <Box width="254px" height="96px" maxWidth="100%" />
-     </Stack>
-     <Box
-       borderRadius="80px"
-       width="508px"
-       height="121px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#262626"
-       width="378.98px"
-       height="51.54px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Accounts
-     </Text>
-     <Stack width="30px" height="27px" />
-     <Stack width="950px" height="514px" maxWidth="100%" background="#FFFFFF" />
-   </Stack>
-  )
-=======
-  // Potential
-  import { Button, Stack, Text, Box } from '@chakra-ui/react'
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
+  };
 
+  return (
+    <ChakraProvider>
+      <Flex height="100vh">
+        {/* Navigation Sidebar */}
+        <Box bg="#262626" width="250px" color="white" p={4}>
+          <VStack spacing={4} align="stretch">
+            {/* Reusing the sidebar from the Accounts page */}
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Breakdown')}>Allocation</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Accounts')}>Accounts</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/')}>Logout</Button>
+          </VStack>
+        </Box>
 
-  export default function Potential() {
+        {/* Main Content Area */}
+        <Box flex="1" p={4} bg="#5F5F5F">
+          <Heading mb={4}>Potential</Heading>
+          {/* Graph */}
+          <Line data={data} options={options} />
 
-    return(
-   <Stack
-     width="100vw"
-     height="100vh"
-     maxWidth="100%"
-     background="#5F5F5F"
-     boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
-   >
-     <Stack width="300px" height="900px" maxWidth="100%" background="#262626">
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Allocation
-         </Text>
-         <Stack width="32px" height="29px" />
-       </Stack>
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Accounts
-         </Text>
-         <Stack width="32px" height="32px" />
-       </Stack>
-       <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-         <Text
-           fontFamily="Inter"
-           fontWeight="semibold"
-           fontSize="32px"
-           color="#262626"
-           width="164px"
-           height="33px"
-           textAlign="center"
-         >
-           Profile
-         </Text>
-         <Stack width="32px" height="32px" />
-       </Stack>
-       <Stack width="32px" height="32px" />
-     </Stack>
-     <Stack width="254px" height="96px" maxWidth="100%">
-       <Box width="254px" height="96px" maxWidth="100%" />
-     </Stack>
-     <Box
-       borderRadius="80px"
-       width="508px"
-       height="121px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#262626"
-       width="378.98px"
-       height="51.54px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Accounts
-     </Text>
-     <Stack width="30px" height="27px" />
-     <Stack width="950px" height="514px" maxWidth="100%" background="#FFFFFF" />
-   </Stack>
-  )
->>>>>>> origin/main
-    }
+          {/* Navigation Button */}
+          <Button
+            mt={4}
+            bg="#FFBCDC"
+            color="#262626"
+            onClick={() => navigate('/Accounts')}
+          >
+            Accounts
+          </Button>
+        </Box>
+      </Flex>
+    </ChakraProvider>
+  );
+}
+
+export default Potential;
