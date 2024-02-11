@@ -1,7 +1,7 @@
 import XMLHttpRequest from 'xhr2';
 import {Config} from './capital_one.js';
 
-export default Bills = {
+export let Bills = {
 		initWithKey: function(apiKey) {
 			console.log(apiKey);
 			Config.setApiKey(apiKey);

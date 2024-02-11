@@ -22,7 +22,7 @@ app.post('/api/createCustomer', (req, res) => {
 
   Customer.createCustomer(requestData).then(res1 =>
     res1).then(d => {
-        if (d.status==201) {
+        if (d.status == 201) {
           res.status(200).send(res1.json())
         }
     });
@@ -34,12 +34,11 @@ app.get("/api/getCustomerById/:id", (req, res) => {
   
   Customer.getCustomerById(id).then(res1 =>
     res1).then(d => {
-        if (d.status==201) {
+        if (d.status == 201) {
           res.status(200).send(res1.json())
         }
     });
 })
-
 
 app.get("api/getAccountsByCustomerId/:id", (req, res) => {
   const id = req.params.id;
