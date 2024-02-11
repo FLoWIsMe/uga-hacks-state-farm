@@ -1,7 +1,7 @@
 import { Stack, Text, Box, Icon } from '@chakra-ui/react'
 
 
-export const Breakdown = () => {
+export default function Breakdown() {
   return(
    <Stack
      width="1357px"

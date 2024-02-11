@@ -1,9 +1,9 @@
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Center, Text } from '@chakra-ui/react'
-import { Box, Stack } from '@chakra-ui/react'
+import { Box, Stack, Icon } from '@chakra-ui/react'
 
-export const Homepage = () => 
-{
+export default function Homepage() {
+
     return(
     <Stack
         width="1357px"

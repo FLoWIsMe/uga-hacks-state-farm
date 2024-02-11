@@ -1,7 +1,7 @@
 import { Stack, Text, Icon, Box } from '@chakra-ui/react'
 
 
-export const Login = () =>{
+export default function Login() {
 
 return (
  <Stack

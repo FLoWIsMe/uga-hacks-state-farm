@@ -1,7 +1,7 @@
 import { Stack, Text, Box } from '@chakra-ui/react'
 
 
-export const Q2 = () => {
+export default function Q2() {
 
 return(
  <Stack

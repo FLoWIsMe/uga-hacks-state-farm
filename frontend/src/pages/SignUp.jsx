@@ -2,8 +2,8 @@
 import { Stack, Text, Icon, Box } from '@chakra-ui/react'
 
 
-export const SignUp = () => {
-  
+export default function SignUp()
+ {
   return(
  <Stack
    width="1357px"

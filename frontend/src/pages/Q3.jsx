@@ -2,7 +2,7 @@
 import { Stack, Text, Box, Icon } from '@chakra-ui/react'
 
 
-export const Q3 = () =>
+export default function Q3()
 {
 
 return(

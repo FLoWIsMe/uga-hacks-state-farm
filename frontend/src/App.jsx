@@ -6,17 +6,15 @@ import './App.css';
 import { ChakraProvider } from '@chakra-ui/react'
 //import { Box, Text } from "@chakra-ui/react"
 
-import HomePage from "./pages/Homepage"
-import Login from "./pages/Login"
-import SignUp from "./pages/SignUp"
-import Potential from "./pages/Potential"
-import Breakdown from "./pages/Breakdown"
-
+import HomePage from "./pages/Homepage.jsx"
+import Login from "./pages/Login.jsx"
+import SignUp from "./pages/SignUp.jsx"
+import Potential from "./pages/Potential.jsx"
+import Breakdown from "./pages/Breakdown.jsx"
 
 
 function App() {
   return (
-
     <ChakraProvider>
       <div className="App">
       <Routes>

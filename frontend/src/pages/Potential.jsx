@@ -2,9 +2,7 @@
   import { Stack, Text, Box } from '@chakra-ui/react'
 
 
-  export const Potential = () => {
-  
-  
+  export default function Potential() {
   
   return (
    <Stack
