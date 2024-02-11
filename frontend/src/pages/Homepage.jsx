@@ -9,7 +9,7 @@ export default function Homepage() {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        height="100vh"
+        height="130vh"
         bg="#5F5F5F"
       >
         <VStack
@@ -18,14 +18,14 @@ export default function Homepage() {
           alignItems="center"
           color="#262626"
         >
-          {/* Placeholder for logo. Replace 'logo.png' with your actual logo path */}
-          <Image src="logo.png" boxSize="150px" objectFit="cover" alt="Logo" mb={8} />
+          
+          <Image src="../public/logo.png" boxWidth="150px" boxHeight="55px" objectFit="cover" alt="Logo" mb={8} />
 
           {/* Buttons for Login and Sign Up */}
           <Button
             bg="#FCBCDC"
             color="#262626"
-            _hover={{ bg: "#f7a8c4" }}
+            _hover={{ bg: "#FFBCDC" }}
             w="full" // Makes the button full width within the VStack
             maxW="md" // Limits the maximum width of the button for better aesthetics
             mb={2} // Margin bottom for spacing between buttons
@@ -36,7 +36,7 @@ export default function Homepage() {
           <Button
             bg="#FCBCDC"
             color="#262626"
-            _hover={{ bg: "#f7a8c4" }}
+            _hover={{ bg: "#FFBCDC" }}
             w="full" // Makes the button full width within the VStack
             maxW="md" // Limits the maximum width of the button
           >

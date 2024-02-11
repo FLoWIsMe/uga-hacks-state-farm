@@ -1,77 +1,28 @@
 import React from 'react';
-import { Stack, Text, Box } from '@chakra-ui/react';
+import { ChakraProvider, Flex, VStack, Button, Box, Heading, Image, IconButton } from '@chakra-ui/react';
 
 export default function Calculating() {
-
   return (
-    <Stack
-      width="100vw"
-      height="100vh"
-      maxWidth="100%"
-      background="#5F5F5F"
-      boxShadow="0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
-    >
-      <Stack width="300px" height="900px" maxWidth="100%" background="#262626">
-        <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-          <Text
-            fontFamily="Inter"
-            fontWeight="semibold"
-            fontSize="32px"
-            color="#262626"
-            width="164px"
-            height="33px"
-            textAlign="center"
-          >
-            Allocation
-          </Text>
-          <Stack width="32px" height="29px" />
-        </Stack>
-        <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-          <Text
-            fontFamily="Inter"
-            fontWeight="semibold"
-            fontSize="32px"
-            color="#262626"
-            width="164px"
-            height="33px"
-            textAlign="center"
-          >
-            Accounts
-          </Text>
-          <Stack width="32px" height="32px" />
-        </Stack>
-        <Stack width="300px" height="91px" maxWidth="100%" background="#FFBCDC">
-          <Text
-            fontFamily="Inter"
-            fontWeight="semibold"
-            fontSize="32px"
-            color="#262626"
-            width="164px"
-            height="33px"
-            textAlign="center"
-          >
-            Profile
-          </Text>
-          <Stack width="32px" height="32px" />
-        </Stack>
-        <Stack width="32px" height="32px" />
-      </Stack>
-      <Stack width="254px" height="96px" maxWidth="100%">
-        <Box width="254px" height="96px" maxWidth="100%" />
-      </Stack>
-      <Text
-        fontFamily="Inter"
-        fontWeight="semibold"
-        fontSize="32px"
-        color="#FFFFFF"
-        width="1032px"
-        height="38px"
-        maxWidth="100%"
-        textAlign="center"
-      >
-        Calculating Your Future ...
-      </Text>
-    </Stack>
-  );
-};
+    <ChakraProvider>
+      <Flex height="130vh">
+        {/* Navigation Sidebar */}
+        <Box bg="#262626" width="250px" color="white" p={4}>
+          <VStack spacing={4} align="stretch">
+            <Image src="../logo.png" boxWidth="150px" boxHeight="55px" objectFit="cover" alt="Logo" mb={8}></Image> 
+            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Allocation</Button>
+            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Accounts</Button>
+            <Button bg="#FFBCDC" color="#262626" _hover={{ bg: "#262626" }}>Profile</Button>
+          </VStack>
+        </Box>
 
+        {/* Main Content Area */}
+        <Box flex="1" p={4} bg="#5F5F5F">
+          <Heading textColor={"#FFFFFF"}>Calculating your future ...</Heading>
+          {/* Pull from API */}
+          
+          
+        </Box>
+      </Flex>
+    </ChakraProvider>
+);
+}

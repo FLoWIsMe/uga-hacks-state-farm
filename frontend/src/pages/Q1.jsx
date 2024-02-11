@@ -83,7 +83,9 @@ export default function Q1() {
       <Button
         onClick={handleNextButtonClick}
         marginTop="2rem"
-        colorScheme="teal"
+        color="#FFFFFF"
+        bg={"#262626"}
+        _hover={{ bg: "#262626" }}
       >
         Next
       </Button>
