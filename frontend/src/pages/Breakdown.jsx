@@ -1,8 +1,7 @@
-  // Potential
-  import { Stack, Text, Box } from '@chakra-ui/react'
+import { Stack, Text, Box, Icon } from '@chakra-ui/react'
 
 
-  export const Potential = () => (
+export const Breakdown = () => (
    <Stack
      width="1357px"
      height="900px"
@@ -58,27 +57,33 @@
      <Stack width="254px" height="96px" maxWidth="100%">
        <Box width="254px" height="96px" maxWidth="100%" />
      </Stack>
-     <Box
-       borderRadius="80px"
-       width="508px"
-       height="121px"
-       maxWidth="100%"
-       background="#FCBCDC"
-     />
-     <Text
-       fontFamily="Inter"
-       fontWeight="semibold"
-       fontSize="32px"
-       color="#262626"
-       width="378.98px"
-       height="51.54px"
-       maxWidth="100%"
-       textAlign="center"
-     >
-       Accounts
-     </Text>
-     <Stack width="30px" height="27px" />
-     <Stack width="950px" height="514px" maxWidth="100%" background="#FFFFFF" />
+     <Icon>
+       <Box
+         borderRadius="80px"
+         width="508px"
+         height="121px"
+         maxWidth="100%"
+         background="#FCBCDC"
+       />
+       <Text
+         fontFamily="Inter"
+         fontWeight="semibold"
+         fontSize="32px"
+         color="#262626"
+         width="378.98px"
+         height="51.54px"
+         maxWidth="100%"
+         textAlign="center"
+       >
+         See your potential
+       </Text>
+       <Stack width="30px" height="27px" />
+     </Icon>
+     <span className="unsupported" />
+     <span className="unsupported" />
+     <span className="unsupported" />
+     <span className="unsupported" />
+     <span className="unsupported" />
+     <span className="unsupported" />
    </Stack>
-  )
-  
+ )
