@@ -42,8 +42,8 @@ function LoginPage() {
           boxShadow="lg"
           color="#FFBCDC"
         >
-          <Heading color="#262626">Login</Heading>
-          <Text color="#262626">Please enter your credentials</Text>
+          <Heading color="##FFBCDC">Login</Heading>
+          <Text color="#FFFFFF">Please enter your credentials</Text>
           <Input
             id="username"
             placeholder="Username"

@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Stack, Text, Box, Button, Select } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Q2() {
+  let navigate = useNavigate()
   const [showDropdown, setShowDropdown] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
 
@@ -18,6 +20,7 @@ export default function Q2() {
     console.log("Selected option:", selectedOption);
     // Example: Navigation to Q3 (replace with actual navigation logic)
     // history.push('/q3');
+    navigate('/q3');
   };
 
   return (

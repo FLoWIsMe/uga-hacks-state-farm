@@ -47,7 +47,7 @@ export default function Breakdown() {
         </Box>
         <Box flex="1" p={4} color="white">
           <Pie data={data} />
-          <Button mt={4} bgColor="#FCBCDC" color="#262626" onClick={() => navigate('/Potential')}>
+          <Button mt={4} bgColor="#FCBCDC" color="#262626" onClick={() => navigate('/potential')}>
             See Potential
           </Button>
         </Box>
