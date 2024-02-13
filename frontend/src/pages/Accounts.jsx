@@ -12,8 +12,8 @@ function Accounts() {
         <Box bg="#262626" width="250px" color="white" p={4}>
           <VStack spacing={4} align="stretch">
             <Image src="../logo.png" boxWidth="150px" boxHeight="55px" objectFit="cover" alt="Logo" mb={8}></Image> 
-            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Breakdown')}>Allocation</Button>
-            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/Accounts')}>Accounts</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/q1')}>Allocation</Button>
+            <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/accounts')}>Accounts</Button>
             <Button bg="#FFBCDC" color="#262626" onClick={() => navigate('/')} >Logout</Button>
           </VStack>
         </Box>
